@@ -27,7 +27,7 @@ const Home = () => {
 
       const data = await response.json();
       if (response.ok) {
-        setResultImage(data.imagePath);
+        setResultImage(data.imageUrl);
       } else {
         setError(`Error: ${data.error}`);
       }
