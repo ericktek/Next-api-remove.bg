@@ -55,7 +55,7 @@ const Home = ({ children }) => {
               <div className="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
               <div className="container flex flex-col justify-center w-full min-h-screen px-6 py-10 mx-auto lg:absolute lg:inset-x-0">
                 <h1 className="text-2xl font-semibold text-gray-600 lg:text-3xl dark:text-white">
-                  How api work <br /> from <span className="text-purple-500">remove.bg</span> to ericktek
+                  How API Works <br /> from <span className="text-purple-500">remove.bg</span> to ericktek
                 </h1>
                 <div className="mt-10 lg:mt-20 lg:flex lg:items-center">
                   <Image
@@ -70,7 +70,7 @@ const Home = ({ children }) => {
                       Understanding the Magic Behind the External API
                     </h1>
                     <p className="max-w-lg mt-6 text-gray-500 dark:text-gray-400">
-                      "This API route is designed to allow users to upload an image, have its background removed using the remove.bg API, and then receive the processed image directly from the server without storing it in a database or file system. The returned image is base64-encoded, making it easy to display in a web application."
+                      &quot;This API route is designed to allow users to upload an image, have its background removed using the remove.bg API, and then receive the processed image directly from the server without storing it in a database or file system. The returned image is base64-encoded, making it easy to display in a web application.&quot;
                     </p>
                     <h3 className="mt-6 text-lg font-medium text-purple-500">
                       Erick B. Lema
