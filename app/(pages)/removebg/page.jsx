@@ -9,6 +9,8 @@ const Removebg = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [resultImage, setResultImage] = useState();
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
 
   const handleImageUpload = (e) => {
     setSelectedImage(e.target.files[0]);
@@ -19,6 +21,8 @@ const Removebg = () => {
       setError("Please select an image first.");
       return;
     }
+
+    setLoading(true); // Start loading
 
     const formData = new FormData();
     formData.append("image", selectedImage);
@@ -42,6 +46,8 @@ const Removebg = () => {
     } catch (error) {
       setError("Something went wrong. Please try again later.");
       console.error(error);
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
@@ -175,11 +181,14 @@ const Removebg = () => {
               </label>
 
               <button
-                onClick={removeBackground}
-                className="text-slate-700 text-xl border border-purple-500 hover:text-white rounded p-4 px-8 z-50 text-center flex justify-center items-center mt-8 hover:bg-purple-400 font-poppins font-bold tracking-widest "
-              >
-                Remove Background
-              </button>
+        onClick={removeBackground}
+        className={`text-slate-700 text-md border border-purple-500 hover:text-white rounded w-full h-14 px-8 z-50 text-center flex justify-center items-center mt-8 hover:bg-purple-400 font-poppins font-bold tracking-widest ${
+          loading ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+        disabled={loading}
+      >
+        {loading ? "Processing..." : "Remove Background"}
+      </button>
             </div>
             <GridPattern
               squares={[
