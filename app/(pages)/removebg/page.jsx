@@ -64,7 +64,7 @@ const Removebg = () => {
             )}
           </div>
           <div className="mx-auto max-w-[26rem]">
-            {/* Conditionally Render Download Button */}
+            {/* Conditionally Render Download Button .. */}
             {resultImage && (
               <a href={resultImage} download="processed-image.png">
 
