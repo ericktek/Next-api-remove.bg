@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import GridPattern from "@/components/magicui/grid-pattern";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 
 const Hero = () => {
@@ -22,10 +23,13 @@ const router = useRouter();
             {/* <!-- Left Card (Image Display) --> */}
             <div className="flex flex-col justify-center items-center gap-2">
               <div className="w-full flex justify-center items-center">
-                <img
-                  alt="ecommerce"
+                <Image
+                width={500}
+                height={500}
+                  alt="demo"
                   className="w-full h-64 object-contain object-center mx-auto "
                   src="/demo.png"
+                  quality={100} 
                 />
               </div>
               <div className="mx-auto max-w-[26rem]">

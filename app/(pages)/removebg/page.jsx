@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import GridPattern from "@/components/magicui/grid-pattern";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Removebg = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -52,7 +53,9 @@ const Removebg = () => {
           <div className="w-full">
             {resultImage && (
               <div>
-                <img
+                <Image
+                width={500}
+                height={500}
                   src={resultImage}
                   alt="No background "
                   className="flex justify-center items-center text-center mx-auto "

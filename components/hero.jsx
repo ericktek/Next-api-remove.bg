@@ -50,7 +50,7 @@ const Hero = () => {
             {/* <!-- Left Card (Image Display) --> */}
             <div className="flex flex-col justify-center items-center gap-2">
               <div className="w-full">
-                <img
+                <Image
                   alt="ecommerce"
                   className="w-full h-64 object-contain object-center"
                   src="/demo.png"
