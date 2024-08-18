@@ -1,13 +1,11 @@
-"use client";
-import axios from "axios";
-import Image from "next/image";
-import React, { useState } from "react";
+"use client"
 import { cn } from "@/lib/utils";
 import GridPattern from "@/components/magicui/grid-pattern";
-import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
-import RetroGrid from "@/components/magicui/retro-grid";
+import { useState } from "react";
 
-const Home = () => {
+
+const Hero = () => {
+
   const [selectedImage, setSelectedImage] = useState(null);
   const [resultImage, setResultImage] = useState(null);
   const [error, setError] = useState(null);
@@ -41,38 +39,10 @@ const Home = () => {
       console.log(`Error: ${error.message}`);
     }
   };
-
   return (
-    <>
-    {/*  navbar  */}
-      <div className="bg-gray-900 p-4">
-        <div className="flex justify-between items-center mx-auto max-w-6xl">
-          <div>
-            <img src="/logo.png" alt="Logo" className="h-6 w-auto" />
-          </div>
-          <div>
-            <span>
-              <Image
-                src="/menu-icon.svg"
-                width={50}
-                height={50}
-                alt="icon"
-                className="h-8 w-8"
-              />
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* body content */}
-      <div className="relative">
-        {/* <!-- Container for the background pattern --> */}
-        <div className="absolute opacity-30 inset-0">
-          <div className="h-full w-full bg-white">
-            {/* <!-- Pseudo-element for the background pattern with opacity --> */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f_1px,transparent_1px)] bg-[size:90px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-30 pointer-events-none"></div>
-          </div>
-        </div>
+    <div>
+         {/* body content */}
+       
 
         {/* <!-- Main Content Section --> */}
         <section className="relative text-gray-600 body-font z-10 py-10 mx-auto max-w-6xl">
@@ -136,7 +106,8 @@ const Home = () => {
                         PNG or JPG (max. 800x400px)
                       </p>
                     </div>
-                    <input id="example5" type="file" className="sr-only" />
+                    <input accept="image/*" type="file" className="sr-only" onChange={handleImageUpload} />
+                    
                   </label>
                 </div>
                 <GridPattern
@@ -163,84 +134,8 @@ const Home = () => {
             </div>
           </div>
         </section>
-      </div>
-      <div className="">
-
-      {/* how is work */}
-
-      <section className="bg-slate-100 my-20 lg:my-40 p-8">
-       <div className="mx-auto max-w-6xl">
-       <div className="relative flex">
-          <div className="min-h-screen lg:w-1/3"></div>
-          <div className="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
-
-          <div className="container flex flex-col justify-center w-full min-h-screen px-6 py-10 mx-auto lg:absolute lg:inset-x-0">
-            <h1 className="text-2xl font-semibold text-gray-600 lg:text-3xl dark:text-white">
-              How api work <br/> from <span className="text-purple-500">remove.bg</span> to
-              ericktek 
-            </h1>
-
-            <div className="mt-10 lg:mt-20 lg:flex lg:items-center">
-              <img
-                className="object-contain object-center w-full lg:w-[32rem] rounded-lg h-96"
-                src="/api.png"
-                alt="developer"
-              />
-
-              <div className="mt-8 lg:px-10 lg:mt-0">
-                <h1 className="text-2xl font-semibold text-gray-800 dark:text-white lg:w-72">
-                Understanding the Magic Behind the External API
-                </h1>
-
-                <p className="max-w-lg mt-6 text-gray-500 dark:text-gray-400">
-                "This API route is designed to allow users to upload an image, have its background removed using the remove.bg API, and then receive the processed image directly from the server without storing it in a database or file system. The returned image is base64-encoded, making it easy to display in a web application."
-                </p>
-
-                <h3 className="mt-6 text-lg font-medium text-purple-500">
-                  Erick B. Lema
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Software developer
-                </p>
-              </div>
-            </div>
-
-         
-          </div>
-        </div>
-       </div>
-      </section>
-
-      {/* Thanks giving */}
-     <div className=" pb-20 lg:pb-28  opacity-50">
-     <VelocityScroll
-      text="Thank you for using our service! "
-      default_velocity={5}
-      className="font-display text-center text-4xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]"
-    />
-     </div>
-
-{/* footer */}
-
-<div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-        <p className="font-montserrat text-purple-600"> © Copyright 2024. All Rights Reserved. </p>
- 
-      <RetroGrid />
     </div>
+  )
+}
 
-{/* <div className="relative flex h-full w-full  items-center justify-center overflow-hidden  bg-background px-40 pb-40 pt-8 md:pb-60 md:shadow-xl">
-      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl lg:text-8xl md:text-7xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-        Thanks
-      </span>
-      <Globe className="top-28" />
-      <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
-    </div> */}
-
-</div>
-
- </>
-  
-  );
-};
-
-export default Home;
+export default Hero
