@@ -1,4 +1,5 @@
 'use client';
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const Home = () => {
@@ -20,19 +21,18 @@ const Home = () => {
     formData.append('image', selectedImage);
 
     try {
-      const response = await fetch('/api/removeBg', {
-        method: 'POST',
-        body: formData,
-      });
+      const response = await axios.post('/api/removeBg', formData);
 
-      const data = await response.json();
-      if (response.ok) {
-        setResultImage(data.imageUrl);
+      if (response.status === 200) {
+        setResultImage(response.data.imageUrl);
       } else {
-        setError(`Error: ${data.error}`);
+        setError(`Error: server returned ${response.status} status code. Please try again. `);
+        console.error(response.data);
       }
     } catch (error) {
-      setError(`Error: ${error.message}`);
+      setError('something went wrong. Please try again later.')
+      console.log(`Error: ${error.message}`);
+
     }
   };
 
